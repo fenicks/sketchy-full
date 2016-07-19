@@ -19,9 +19,9 @@ RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys B97B0AFCAA1A47F044F
     cd /usr/local/src &&\
     git clone --depth 1 --branch master https://github.com/Netflix/sketchy.git
 
-ENV REDIS_VERSION 3.0.7
-ENV REDIS_DOWNLOAD_URL http://download.redis.io/releases/redis-3.0.7.tar.gz
-ENV REDIS_DOWNLOAD_SHA1 e56b4b7e033ae8dbf311f9191cf6fdf3ae974d1c
+ENV REDIS_VERSION 3.2.1
+ENV REDIS_DOWNLOAD_URL http://download.redis.io/releases/redis-3.2.1.tar.gz
+ENV REDIS_DOWNLOAD_SHA1 26c0fc282369121b4e278523fce122910b65fbbf
 # for redis-sentinel see: http://redis.io/topics/sentinel
 RUN set -x \
 	&& rm -rf /var/lib/apt/lists/* \
