@@ -5,11 +5,11 @@ MAINTAINER Christian Kakesa
 
 ENV SKETCHY_DEV_PACKAGES python-dev libpq-dev libmysqlclient-dev libxslt-dev libxml2-dev gcc make
 
-RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys B97B0AFCAA1A47F044F244A07FCC7D46ACCC4CF8 &&\
-    echo "deb http://apt.postgresql.org/pub/repos/apt/ precise-pgdg main" > /etc/apt/sources.list.d/pgdg.list &&\
+RUN sudo sh -c "echo 'deb http://apt.postgresql.org/pub/repos/apt/ precise-pgdg main' > /etc/apt/sources.list.d/pgdg.list" &&\
+    wget --quiet -O - http://apt.postgresql.org/pub/repos/apt/ACCC4CF8.asc | sudo apt-key add - &&\
     apt-get update -y &&\
     apt-get -y -q install python-software-properties software-properties-common wget &&\
-    apt-get -y -q install postgresql-9.3 postgresql-client-9.3 postgresql-contrib-9.3 &&\
+    apt-get -y -q install postgresql-9.5 postgresql-client-9.5 postgresql-contrib-9.5 &&\
     apt-get -y -q install python-pip  python-psycopg2 python-virtualenv nginx supervisor git curl sudo &&\
     apt-get -y -q install libfontconfig1 build-essential &&\
     apt-get -y -q install  ${SKETCHY_DEV_PACKAGES} &&\
