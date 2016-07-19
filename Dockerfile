@@ -9,7 +9,7 @@ RUN sudo sh -c "echo 'deb http://apt.postgresql.org/pub/repos/apt/ precise-pgdg 
     wget --quiet -O - http://apt.postgresql.org/pub/repos/apt/ACCC4CF8.asc | sudo apt-key add - &&\
     apt-get update -y &&\
     apt-get -y -q install python-software-properties software-properties-common wget &&\
-    apt-get -y -q install postgresql-9.5 postgresql-client-9.5 postgresql-contrib-9.5 &&\
+    apt-get -y -q install postgresql postgresql-contrib &&\
     apt-get -y -q install python-pip  python-psycopg2 python-virtualenv nginx supervisor git curl sudo &&\
     apt-get -y -q install libfontconfig1 build-essential &&\
     apt-get -y -q install  ${SKETCHY_DEV_PACKAGES} &&\
