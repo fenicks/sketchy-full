@@ -53,6 +53,7 @@ RUN cd /usr/local/src/sketchy \
     && apt-get -y -q autoclean
 
 COPY sketchy-entrypoint.sh /usr/local/bin/
+RUN chmod 755 /usr/local/bin/sketchy-entrypoint.sh
 ENTRYPOINT ["sketchy-entrypoint.sh"]
 
 EXPOSE 8000
