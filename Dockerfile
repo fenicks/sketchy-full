@@ -5,10 +5,11 @@ MAINTAINER Christian Kakesa
 
 ENV SKETCHY_DEV_PACKAGES python-dev libpq-dev libmysqlclient-dev libxslt-dev libxml2-dev gcc make
 
-RUN sudo sh -c "echo 'deb http://apt.postgresql.org/pub/repos/apt/ precise-pgdg main' > /etc/apt/sources.list.d/pgdg.list" &&\
+RUN apt-get update -y &&\
+    apt-get -y -q install python-software-properties software-properties-common wget &&\
+    sudo sh -c "echo 'deb http://apt.postgresql.org/pub/repos/apt/ precise-pgdg main' > /etc/apt/sources.list.d/pgdg.list" &&\
     wget --quiet -O - http://apt.postgresql.org/pub/repos/apt/ACCC4CF8.asc | sudo apt-key add - &&\
     apt-get update -y &&\
-    apt-get -y -q install python-software-properties software-properties-common wget &&\
     apt-get -y -q install postgresql postgresql-contrib &&\
     apt-get -y -q install python-pip  python-psycopg2 python-virtualenv nginx supervisor git curl sudo &&\
     apt-get -y -q install libfontconfig1 build-essential &&\
