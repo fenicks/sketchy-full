@@ -40,7 +40,7 @@ CELERY_RESULT_SERIALIZER = 'json'
 LOCAL_STORAGE_FOLDER = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'files')
 
 # Maximum time to wait for PhantomJS to generate a screenshot
-PHANTOMJS_TIMEOUT = 7 * 24 * 60 * 60
+PHANTOMJS_TIMEOUT = int(os.getenv('phantomjs_timeout', '35'))
 
 # Maximum number of Celery Job retries on failure
 MAX_RETRIES = 20
@@ -69,7 +69,7 @@ SKETCHY_LOG_FILE = "sketchy.log"
 SSL_HOST_VALIDATION = False
 
 # Set the timeout of "requests"
-REQUESTS_TIMEOUT = 5
+REQUESTS_TIMEOUT = int(os.getenv('requests_timeout', '5'))
 
 # Ignore a comma seperated list of IP ranges
 # any host that falls within the range will be ignored
