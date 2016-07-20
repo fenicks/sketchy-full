@@ -18,7 +18,7 @@ RUN apt-get update -y &&\
         tar -xf /usr/local/share/phantomjs-2.1.1-linux-x86_64.tar.bz2 -C /usr/local/share/ &&\
         ln -s /usr/local/share/phantomjs-2.1.1-linux-x86_64/bin/phantomjs /usr/local/bin/phantomjs &&\
     cd /usr/local/src &&\
-    git clone --depth 1 --branch master https://github.com/Netflix/sketchy.git
+    git clone --depth 1 --branch fenicks https://github.com/fenicks/sketchy.git
 
 ENV REDIS_VERSION 3.2.1
 ENV REDIS_DOWNLOAD_URL http://download.redis.io/releases/redis-3.2.1.tar.gz
