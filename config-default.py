@@ -15,7 +15,7 @@ import os
 
 _basedir = os.path.abspath(os.path.dirname(__file__))
 
-DEBUG = False
+DEBUG = os.getenv('sketchy_debug', 'False').lower() == 'true'
 
 # Database setup
 SQLALCHEMY_DATABASE_URI = os.getenv('sketchy_db', 'postgresql://sketchy:sketchy@localhost:5432/sketchy')
