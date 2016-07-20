@@ -40,7 +40,7 @@ CELERY_RESULT_SERIALIZER = 'json'
 LOCAL_STORAGE_FOLDER = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'files')
 
 # Maximum time to wait for PhantomJS to generate a screenshot
-PHANTOMJS_TIMEOUT = 35
+PHANTOMJS_TIMEOUT = 300
 
 # Maximum number of Celery Job retries on failure
 MAX_RETRIES = 20
