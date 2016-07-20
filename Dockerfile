@@ -52,10 +52,6 @@ RUN cd /usr/local/src/sketchy \
     && apt-get -y -q clean \
     && apt-get -y -q autoclean
 
-COPY sketchy-entrypoint.sh /usr/local/bin/
-RUN chmod 755 /usr/local/bin/sketchy-entrypoint.sh
-ENTRYPOINT ["sketchy-entrypoint.sh"]
-
 EXPOSE 8000
 
 CMD ["/usr/local/src/sketchy/scripts/api-start.sh"]

@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+sudp sysctl -p
+
 current_dir=$(cd $(dirname "$0")/.. && pwd)
 
 sudo service postgresql start
