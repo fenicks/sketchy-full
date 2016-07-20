@@ -68,6 +68,9 @@ SKETCHY_LOG_FILE = "sketchy.log"
 # Perform SSL host validation (set to False if you want to scrape/screenshot sketchy websites)
 SSL_HOST_VALIDATION = False
 
+# Set the timeout of "requests"
+REQUESTS_TIMEOUT = 5
+
 # Ignore a comma seperated list of IP ranges
 # any host that falls within the range will be ignored
 IP_BLACKLISTING = os.getenv('ip_blacklisting', 'False').lower() == 'true'
