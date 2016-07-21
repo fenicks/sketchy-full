@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 sudo sysctl -w net.core.somaxconn=1024
+echo never > sudo tee /sys/kernel/mm/transparent_hugepage/enabled
 
 current_dir=$(cd $(dirname "$0")/.. && pwd)
 
