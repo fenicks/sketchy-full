@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-sudp sysctl -p
+sudo sysctl -w net.core.somaxconn=1024
 
 current_dir=$(cd $(dirname "$0")/.. && pwd)
 
