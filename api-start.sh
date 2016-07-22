@@ -2,6 +2,7 @@
 
 function _init {
     echo 'net.core.somaxconn = 1024' | sudo tee -a /etc/sysctl.conf
+    sudo sysctl -p
 
     if [ -d /sys/kernel/mm/transparent_hugepage ]; then
       thp_path=/sys/kernel/mm/transparent_hugepage
