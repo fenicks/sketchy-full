@@ -1,8 +1,23 @@
 #!/usr/bin/env bash
 
-sudo sysctl -w net.core.somaxconn=1024
-echo never > sudo tee /sys/kernel/mm/transparent_hugepage/enabled
+function _init {
+    echo 'net.core.somaxconn = 1024' | sudo tee -a /etc/sysctl.conf
 
+    if [ -d /sys/kernel/mm/transparent_hugepage ]; then
+      thp_path=/sys/kernel/mm/transparent_hugepage
+    elif [ -d /sys/kernel/mm/redhat_transparent_hugepage ]; then
+      thp_path=/sys/kernel/mm/redhat_transparent_hugepage
+    else
+      return 0
+    fi
+
+    echo 'never' | sudo tee ${thp_path}/enabled
+    echo 'never' | sudo tee ${thp_path}/defrag
+
+    unset thp_path
+}
+
+_init
 current_dir=$(cd $(dirname "$0")/.. && pwd)
 
 sudo service postgresql start
